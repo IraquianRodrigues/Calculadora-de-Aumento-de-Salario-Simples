@@ -1,30 +1,36 @@
-#PROJETO IMC
 #Autor: Iraquian Rodrigues
+#Aumento Salarial
 
 print('*'*20)
-
-print('Calculando o IMC ')
-
+print('AUMENTO DE SALARIO')
 print('*'*20)
 print()
 
-print('DADOS CADASTRAIS!')
-print()
+print('Dados do Colaborador')
 
-nome = input("Qua seu nome?: ")
-idade = input("Informe sua idade: ")
-peso = float(input("Quantos Kg pesa?: "))
-altura = float(input("Sua altura?: "))
+nome= input('digite o seu nome: ')
+idade = int(input('digite a sua idade: '))
+salario = float(input('digite o seu salario atual: '))
 
-imc = float(peso / altura) ** 2
+sal15 = salario * 0.15
+sal20 = salario * 0.20
+sal25 = salario * 0.25
 
-print()
+resultado = salario + sal15 or sal20 or sal25
 
+if salario <= 280:
+    print('conceber aumento de 15%')
 
+elif salario > 280 and salario <= 700:
+    print('Conceber Aumento de 20%')
+
+elif salario > 700 and salario <= 1500:
+    print('Conceber aumento de 20%')
+
+print('Calculando Aumento...Por favor Aguarde!')
 
 import time
 import sys
-print("Calculando os Dados, Aguarde...")
 #animation = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]
 animation = ["[■□□□□□□□□□]","[■■□□□□□□□□]", "[■■■□□□□□□□]", "[■■■■□□□□□□]", "[■■■■■□□□□□]", "[■■■■■■□□□□]", "[■■■■■■■□□□]", "[■■■■■■■■□□]", "[■■■■■■■■■□]", "[■■■■■■■■■■]"]
 
@@ -32,30 +38,9 @@ for i in range(len(animation)):
     time.sleep(0.6)
     sys.stdout.write("\r" + animation[i % len(animation)])
     sys.stdout.flush()
+print()
+print()
 
-print("\n")
 
-print(F'Seu nome é {nome}, tem {idade} anos e {altura} de altura.')
-print(F'Seu resultado do seu IMC foi de {imc:.2f}')
-print('De acordo com o cálculo voce está com o seguinte IMC:')
 
-if imc < 0.17:
-    print('abaixo do peso')
-
-elif imc > 0.19 and imc <= 0.25:
-    print('Está no peso ideal')
-
-elif imc > 0.25 and imc <= 0.29:
-    print('Levemente Acima do peso')
-
-elif imc > 0.30 and imc <= 0.35:
-    print('Obesidade de Grau I')
-
-elif imc > 0.35 and imc <= 0.39:
-    print('Obesidade de Grau II')
-
-elif imc > 0.40:
-    print('Obesidade Morbida')
-
-else:
-    print('Encerrar Programa!')
+print(F'Sr.{nome}, Seu aumento salarial foi de {resultado:.2f}')
